@@ -8,3 +8,4 @@ pub mod errors;
 pub mod traits;
 pub mod lifetime;
 pub mod smart_pointers;
+pub mod concurrency;

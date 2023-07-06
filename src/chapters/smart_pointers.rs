@@ -205,6 +205,8 @@ pub fn ref_cycles() {
     let leaf = Rc::new( TreeNode::new(2) );
     branch.children.borrow_mut().push(Rc::clone(&leaf));
     *(leaf.parent.borrow_mut()) = Rc::downgrade(&branch);
+
+    println!("branch ref count = {}, leaf ref count = {}", Rc::strong_count(&branch), Rc::strong_count(&leaf));
   }
 
   println!("{:?}", *(root).children.borrow());
